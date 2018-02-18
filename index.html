@@ -1,100 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
     <title>Bootstrap 4 Starter Template</title>
-  </head><body>
-  <!--Jumbotron-->
-<div class="jumbotron">
+</head>
 
-    <h1 class="h1-reponsive mb-3 blue-text"><strong>Thomas Acres - Full Stack Web Developer!</strong></h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-        to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger
-        container.
-    </p>
-    <div class="col-12 col-md-auto" class="rounded">
-<img src ="img/thomas.gif" alt="thomas" class="img-thumbnail">
-</div>
-    <p class="lead">
-        <a class="btn aqua-gradient btn-lg" href="#" role="button">Learn more</a>
-    </p>
+<body>
+    <!--Jumbotron-->
+    <div class="">
 
-</div>
-<!--Jumbotron-->
-  
-    <h1>Test</h1>
+        <h1 class="h1-reponsive mb-3 blue-text">
+            <strong>Thomas Acres - Full Stack Web Developer!</strong>
+        </h1>
+        <p class="lead">Connect with me on Social Media!</p>
+        <hr class="my-4">
+
+        <div class="col-12 col-md-auto" class="rounded">
+            <img src="img/thomas.gif" alt="thomas" class="img-thumbnail">
+        </div>
+
+
+    </div>
+    <!--Jumbotron-->
+
+    <h1 class="text-center">Welcome!</h1>
+
+
     <footer class="page-footer blue center-on-small-only">
 
         <!--Footer Links-->
         <div class="container-fluid">
+            <div class="row d-none">
+                <div class="social-icons">
+                    <button type="button" class="btn btn-fb">
+                        <i class="fa fa-facebook left"></i> Facebook</button>
+                    <button type="button" class="btn btn-git">
+                        <i class="fa fa-github left"></i> Github</button>
+                    <button type="button" class="btn btn-ins">
+                        <i class="fa fa-instagram left"></i> Instagram</button>
+                    <button type="button" class="btn btn-li">
+                        <i class="fa fa-linkedin left"></i> Linkedin</button>
+                </div>
+            </div>
             <div class="row">
-    
+
+
                 <!--First column-->
-                <div class="col-md-6">
-                    <h5 class="title">Footer Content</h5>
-                    <p>Here you can use rows and columns here to organize your footer content.</p>
+                <div class="col-md-5">
+                    <h5 class="title">Take a Look At My Github Reposatory link down below!</h5>
+                    <p>My Social media profiles are to the right, click the seperate links to see them</p>
+                    <div id="gitHubRepo">
+                        <h1>GitHubRepos</h1>
+                        <ul id="myRepos"></ul>
+                        <button class="btn btn-default" class="button" type="button" onclick="loadRepo()">My GitHub Repos</button>
+                    </div>
                 </div>
                 <!--/.First column-->
-                <div id="gitHubRepo">
-                    <h1>GitHubRepos</h1>
-                    <ul id="myRepos"></ul>
-                    <button class="button" type="button" onclick="loadRepo()">My GitHub Repos</button>
-                </div>
-    
+
+
                 <!--Second column-->
-                <div class="col-md-6">
-                    <h5 class="title">Links</h5>
-                    <ul>
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
+                <div class="col-md-7">
+                    <h5 class="title">Thomas' Social Media Links</h5>
+                    <div class="social-icons">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="btn btn-primary" target="_blank" href="https://facebook.com/thomas.acres.311">
+                                    <i class="fa fa-facebook mr-2"></i>Facebook</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-amber" href="https://github.com/trynaread">
+                                    <i class="fa fa-github mr-2"></i>GitHub</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-black" href="https://www.instagram.com/cozmic_dancer/">
+                                    <i class="fa fa-instagram mr-2"></i>instagram</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-default" href="https://www.linkedin.com/in/thomas-acres-405b85148/">
+                                    <i class="fa fa-linkedin mr-2"></i>linkedin</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--/.Second column-->
                 </div>
-                <!--/.Second column-->
-            </div>
-        </div>
-        <!--/.Footer Links-->
-        <script>
-            // https://api.github.com/thomas/trynaread/repos
-        
-            function loadRepo(url, callback) {
-            
-            let output = '';
-            const xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    JSON.parse(this.responseText).map( repo => output += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`);
-                //console.log(JSON.parse(this.responseText));      
-                document.getElementById("myRepos").innerHTML = output;
-            }
-            };
-            xhttp.open("GET"," https://api.github.com/thomas/trynaread/repos");
-            xhttp.send();
-        
-        
-            }
-        
-            </script>
-        <!--Copyright-->
-        <div class="footer-copyright">
-            <div class="container-fluid">
-                © 2015 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-    
             </div>
         </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+        <!--/.Footer Links-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        Phone Number - (480) 678-1669
+                    </div>
+                    <div class="col-md-6">
+                        Email - lacroixboi23@gmail.com
+                        <a href="mailto:lacroixboi23@gmail.com">
+                        <button type="button" class="btn btn-tb btn-default btn-email">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                        </button>
+                        <a href="https://www.MDBootstrap.com"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!--Copyright-->
+
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+
+    <script>
+        // https://api.github.com/thomas/trynaread/repos
+
+        function loadRepo(url, callback) {
+
+            let output = '';
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    JSON.parse(this.responseText).map(repo => output += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`);
+                    //console.log(JSON.parse(this.responseText));      
+                    document.getElementById("myRepos").innerHTML = output;
+                }
+            };
+            xhttp.open("GET", " https://api.github.com/users/trynaread/repos");
+            xhttp.send();
+
+
+        }
+
+    </script>
+
+</body>
+
 </html>
